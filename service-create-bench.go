@@ -55,7 +55,7 @@ func session(requests, concurrency int, images []string, args []string, complete
 func bench(requests, concurrency int, images []string, args []string) {
     start := time.Now()
 
-    timings := make([]float64, requests)
+    timings := make([]float64, 0)
     completeCh := make(chan time.Duration, requests)
     doneCh := make(chan struct{})
     current := 0
@@ -100,7 +100,7 @@ func main() {
             Usage: "Number of multiple requests to perform at a time.",
         },
         cli.IntFlag{
-            Name:  "requests, n",
+            Name:  "requests, r",
             Value: 1,
             Usage: "Number of services to start for the benchmarking session.",
         },
